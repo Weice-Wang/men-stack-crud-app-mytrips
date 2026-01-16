@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= trip.destination %></title>
+</head>
+
+<body>
+  <h1><%= trip.destination %></h1>
+
+  <div class="trip-card">
+    <p><strong>Dates</strong><br>
+      <%= trip.startDate.toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' }) %>
+      -
+      <%= trip.endDate.toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' }) %>
+    </p>
+
+    <p><strong>Activities</strong><br>
+      <%= trip.activities || 'Not specified' %>
+    </p>
+
+    <p><strong>Estimated Cost</strong><br>
+      $<%= trip.priceRange %>
+    </p>
+
+    <p><strong>Been there before?</strong><br>
+      <%= trip.haveBeenThere ? 'Yes' : 'No' %>
+    </p>
+  </div>
+
+  <div class="actions">
+    <a href="/trips/<%= trip._id %>/edit">Edit</a>
+    <a href="/trips">Back</a>
+  </div>
+
+  <form action="/trips/<%= trip._id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete <%= trip.destination %></button>
+  </form>
+</body>
+
+</html>

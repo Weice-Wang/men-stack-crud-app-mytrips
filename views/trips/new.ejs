@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a Trip</title>
+</head>
+
+<body>
+  <h1>Create a New Trip!</h1>
+  <form action="/trips" method="POST">
+    <label for="destination">Destination:</label>
+    <input type="text" name="destination" id="destination" />
+
+    <label for="startDate">Start Date:</label>
+    <input type="date" name="startDate">
+
+    <label for="endDate">End Date:</label>
+    <input type="date" name="endDate">
+
+    <label for="activities">Activities:</label>
+    <textarea id="activities" name="activities" rows="3" placeholder="Describe the activities planned for your trip..."></textarea>
+
+    <label for="priceRange">Estimated Cost Range</label>
+    <select id="priceRange" name="priceRange">
+      <option value="">Select a range</option>
+      <option value="0-1000">$0 - $1000</option>
+      <option value="1000-5000">$1000 - $5000</option>
+      <option value="5000-10000">$5000 - $10000</option>
+      <option value="10000+">$10,000+</option>
+    </select>
+    <label for="haveBeenThere">
+      <input type="checkbox" id="haveBeenThere" name="haveBeenThere" value="true">
+      Have been there?
+    </label>
+
+    <button type="submit">Add Trip</button>
+  </form>
+  <a href="/trips/">All Trips</a>
+</body>
+
+</html>

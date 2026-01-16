@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Trips</title>
+</head>
+
+<body>
+  <h1>Here are all your trips</h1>
+  <table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+      <th>Destination</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Actions</th>
+    </tr>
+
+    <% trips.forEach(trip => { %>
+    <tr>
+      <td><%= trip.destination %></td>
+      <td><%= trip.startDate.toLocaleDateString('en-AU') %></td>
+      <td><%= trip.endDate.toLocaleDateString('en-AU') %></td>
+      <td>
+        <a href="/trips/<%= trip._id %>">View</a>
+        <a href="/trips/<%= trip._id %>/edit">Edit</a>
+      </td>
+    </tr>
+    <% }) %>
+  </table>
+  <a href="/trips/new">Add New Trip</a>
+</body>
+
+</html>

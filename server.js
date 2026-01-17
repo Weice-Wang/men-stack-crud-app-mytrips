@@ -17,7 +17,7 @@ const app = express();
 
 // 03. MIDDLEWARE
 app.use(express.urlencoded({ extended: false }));
-app.use(methodOverride("_method-override"));
+app.use(methodOverride("_method"));
 app.use(morgan("dev"));
 
 // 04. ROUTES
@@ -26,7 +26,7 @@ app.get("/", async (req, res) => {
   res.render("home.ejs");
 });
 
-//Create Route
+//Create New Route
 app.get("/trips/new", (req, res) => {
   res.render("trips/new.ejs");
 });
@@ -53,9 +53,30 @@ app.get("/trips/:tripId", async (req, res) => {
   res.render("trips/show.ejs", { trip: foundTrip });
 });
 
+//Delete Route
+app.delete("/trips/:tripId", async (req, res) => {
+  await Trip.findByIdAndDelete(req.params.tripId);
+  res.redirect("/trips");
+});
+
+//Edit Route
+app.get("/trips/:tripId/edit", async (req, res) => {
+  const foundTrip = await Trip.findById(req.params.tripId);
+  console.log(foundTrip);
+  res.render("trips/edit.ejs", { trip: foundTrip });
+});
+
+app.put("/trips/:tripId", async (req, res) => {
+  if (req.body.haveBeenThere === "on") {
+    req.body.haveBeenThere = true;
+  } else {
+    req.body.haveBeenThere = false;
+  }
+  await Trip.findByIdAndUpdate(req.params.tripId, req.body);
+  res.redirect(`/trips/${req.params.tripId}`);
+});
+
 // 05. APP LISTENER
 app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);
 });
-
-//this is tesing

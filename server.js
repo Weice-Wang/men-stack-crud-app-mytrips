@@ -54,8 +54,8 @@ app.get("/trips/:tripId", async (req, res) => {
 });
 
 // 05. APP LISTENER
-app.listen(3000, () => {
-  console.log("Listening on port 3000");
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on port ${process.env.PORT}`);
 });
 
 //this is tesing

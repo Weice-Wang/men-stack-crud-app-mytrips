@@ -4,15 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
   <title>MyTrips</title>
 </head>
 
 <body>
-  <%- include('./partials/_navbar.ejs') %>
-  <h1>MyTrips</h1>
-  <p>A trip application tracker for collecting and planning your past and future trips.</p>
 
-  <a href="/trips/">All Trips</a>
+  <div class="index-container">
+    <div class="text-container">
+      <h1 class="main-header">MyTrips</h1>
+      <p class="subheader">Your personal travel hub to track memories and plan future adventures.</p>
+    </div>
+    <div class="auth-links">
+      <a class="signup-link" href="/auth/sign-up">Sign Up</a>
+      <a class="signin-link" href="/auth/sign-in">Sign In</a>
+    </div>
+  </div>
 
 </body>
 

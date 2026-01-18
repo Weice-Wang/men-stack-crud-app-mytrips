@@ -12,6 +12,7 @@ mongoose.connection.on("connected", () => {
 const session = require("express-session");
 const isSignedIn = require("./middleware/is-signed-in.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
+const path = require("path");
 
 // 02. GLOBAL VARIABLE
 const app = express();
@@ -23,12 +24,13 @@ const tripsController = require("./controllers/trips.js");
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(morgan("dev"));
+app.use(express.static(path.join(__dirname, "public")));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-  })
+  }),
 );
 app.use(passUserToView);
 app.use("/auth", authController);

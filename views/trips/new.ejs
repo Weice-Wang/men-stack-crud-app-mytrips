@@ -10,36 +10,38 @@
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Create a New Trip!</h1>
-  <form action="/users/<%= user._id %>/trips" method="POST">
-    <label for="destination">Destination:</label>
-    <input type="text" name="destination" id="destination" />
+  <div class="new-body">
+    <h1>Create a New Trip!</h1>
+    <form action="/users/<%= user._id %>/trips" method="POST">
+      <label for="destination">Destination:</label>
+      <input type="text" name="destination" id="destination" />
 
-    <label for="startDate">Start Date:</label>
-    <input type="date" name="startDate">
+      <label for="startDate">Start Date:</label>
+      <input type="date" name="startDate">
 
-    <label for="endDate">End Date:</label>
-    <input type="date" name="endDate">
+      <label for="endDate">End Date:</label>
+      <input type="date" name="endDate">
 
-    <label for="activities">Activities:</label>
-    <textarea id="activities" name="activities" rows="3" placeholder="Describe the activities planned for your trip..."></textarea>
+      <label for="activities">Activities:</label>
+      <textarea id="activities" name="activities" rows="3" placeholder="Describe the activities planned for your trip..."></textarea>
 
-    <label for="priceRange">Estimated Cost Range</label>
-    <select id="priceRange" name="priceRange">
-      <option value="">Select a range</option>
-      <option value="0-1000">$0 - $1000</option>
-      <option value="1000-5000">$1000 - $5000</option>
-      <option value="5000-10000">$5000 - $10000</option>
-      <option value="10000+">$10,000+</option>
-    </select>
-    <label for="haveBeenThere">
-      <input type="checkbox" id="haveBeenThere" name="haveBeenThere" value="true">
-      Have been there?
-    </label>
+      <label for="priceRange">Estimated Cost Range</label>
+      <select id="priceRange" name="priceRange">
+        <option value="">Select a range</option>
+        <option value="0-1000">$0 - $1000</option>
+        <option value="1000-5000">$1000 - $5000</option>
+        <option value="5000-10000">$5000 - $10000</option>
+        <option value="10000+">$10,000+</option>
+      </select>
+      <label for="haveBeenThere">
+        <input type="checkbox" id="haveBeenThere" name="haveBeenThere" value="true">
+        Have been there?
+      </label>
 
-    <button type="submit">Add Trip</button>
-  </form>
-  <a href="/users/<%= user._id %>/trips">All Trips</a>
+      <button type="submit">Add Trip</button>
+    </form>
+    <a href="/users/<%= user._id %>/trips">All Trips</a>
+  </div>
 </body>
 
 </html>

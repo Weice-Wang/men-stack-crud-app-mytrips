@@ -4,42 +4,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/show.css" />
   <title><%= trip.destination %></title>
 </head>
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1><%= trip.destination %></h1>
+  <div class="show-body">
+    <div class="show-header">
+      <h1><%= trip.destination %></h1>
+      <div class="show-sidebar">
+        <div class="show-actions">
+          <a href="/users/<%= user._id %>/trips/<%= trip._id %>/edit">Edit</a>
+          <a href="/users/<%= user._id %>/trips">Back</a>
+          <form action="/users/<%= user._id %>/trips/<%= trip._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
-  <div class="trip-card">
-    <p><strong>Dates</strong><br>
-      <%= trip.startDate.toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' }) %>
-      -
-      <%= trip.endDate.toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' }) %>
-    </p>
+    <div class="show-notes">
+      <h2>Dates:</h2>
+      <p><%= trip.startDate.toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' }) %> - <%= trip.endDate.toLocaleDateString('en-AU', { day: '2-digit', month: 'short', year: 'numeric' }) %></p>
+      <h2>Activities:</h2>
+      <p> <%= trip.activities || 'Not specified' %> </p>
+      <h2>Estimated Cost:</h2>
+      <p>$<%= trip.priceRange %></p>
+      <h2>Been there before?</h2>
+      <p><%= trip.haveBeenThere ? 'Yes' : 'No' %></p>
+    </div>
 
-    <p><strong>Activities</strong><br>
-      <%= trip.activities || 'Not specified' %>
-    </p>
 
-    <p><strong>Estimated Cost</strong><br>
-      $<%= trip.priceRange %>
-    </p>
 
-    <p><strong>Been there before?</strong><br>
-      <%= trip.haveBeenThere ? 'Yes' : 'No' %>
-    </p>
-  </div>
 
-  <div class="actions">
-    <a href="/users/<%= user._id %>/trips/<%= trip._id %>/edit">Edit</a>
-    <a href="/users/<%= user._id %>/trips">Back</a>
-  </div>
-
-  <form action="/users/<%= user._id %>/trips/<%= trip._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete</button>
-  </form>
 </body>
 
 </html>

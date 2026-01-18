@@ -1,0 +1,104 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
+    url("https://images.hdqwalls.com/wallpapers/denis-istomin-memories-we-made-4k-ej.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.show-body {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  width: 30%;
+}
+
+.show-header > h1 {
+  color: #ffffff;
+  font-size: 5em;
+  margin: 0 0 0 50px;
+}
+
+.show-actions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px 0 20px 50px;
+}
+
+button {
+  padding: 8px 10px;
+  background-color: #ce4866;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  font-size: 1.1em;
+  width: 10em;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #e84a6c;
+}
+
+.show-actions > a {
+  background-color: #000000;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 8px 10px;
+  border-radius: 30px;
+  width: 9em;
+  text-align: center;
+  margin: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.show-actions > a:hover {
+  background-color: #373737;
+}
+
+p {
+  color: #000000;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 10px 30px;
+  text-align: left;
+}
+
+.show-notes {
+  background-color: #fff0f0;
+  width: 50%;
+  border-radius: 20px;
+  padding: 40px 40px 20px 40px;
+  margin: 20px 10px;
+}
+
+h2 {
+  margin: 0 10px;
+  color: #000000;
+}
+
+.show-notes > p {
+  font-weight: normal;
+  color: #1c2e5b;
+  text-align: left;
+  font-size: 1.2em;
+}

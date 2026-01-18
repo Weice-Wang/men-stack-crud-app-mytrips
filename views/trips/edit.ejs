@@ -10,36 +10,38 @@
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Edit Trip to <%= trip.destination %></h1>
-  <form action="/users/<%= user._id %>/trips/<%= trip._id %>?_method=PUT" method="POST">
-    <label for="destination">Destination:</label>
-    <input type="text" name="destination" id="destination" value="<%= trip.destination %>" />
+  <div class="edit-body">
+    <h1>Edit Trip to <%= trip.destination %></h1>
+    <form action="/users/<%= user._id %>/trips/<%= trip._id %>?_method=PUT" method="POST">
+      <label for="destination">Destination:</label>
+      <input type="text" name="destination" id="destination" value="<%= trip.destination %>" />
 
-    <label for="startDate">Start Date:</label>
-    <input type="date" name="startDate" value="<%= trip.startDate.toISOString().slice(0, 10) %>">
+      <label for="startDate">Start Date:</label>
+      <input type="date" name="startDate" value="<%= trip.startDate.toISOString().slice(0, 10) %>">
 
-    <label for="endDate">End Date:</label>
-    <input type="date" name="endDate" value="<%= trip.endDate.toISOString().slice(0, 10) %>">
+      <label for="endDate">End Date:</label>
+      <input type="date" name="endDate" value="<%= trip.endDate.toISOString().slice(0, 10) %>">
 
-    <label for="activities">Activities:</label>
-    <textarea id="activities" name="activities" rows="3" placeholder="Describe the activities planned for your trip..."><%= trip.activities %></textarea>
+      <label for="activities">Activities:</label>
+      <textarea id="activities" name="activities" rows="3" placeholder="Describe the activities planned for your trip..."><%= trip.activities %></textarea>
 
-    <label for="priceRange">Estimated Cost Range</label>
-    <select id="priceRange" name="priceRange">
-      <option value="" <%= trip.priceRange === ""? "select" : "" %>>Select a range</option>
-      <option value="0-1000" <%= trip.priceRange === "0-1000" ? "selected" : "" %>>$0 - $1000</option>
-      <option value="1000-5000" <%= trip.priceRange === "1000-5000" ? "selected" : "" %>>$1000 - $5000</option>
-      <option value="5000-10000" <%= trip.priceRange === "5000-10000" ? "selected" : "" %>>$5000 - $10000</option>
-      <option value="10000+" <%= trip.priceRange === "10000+" ? "selected" : "" %>>$10,000+</option>
-    </select>
-    <label for="haveBeenThere">
-      <input type="checkbox" id="haveBeenThere" name="haveBeenThere" value="on" <%= trip.haveBeenThere ? "checked" : "" %>>
-      Have been there?
-    </label>
+      <label for="priceRange">Estimated Cost Range</label>
+      <select id="priceRange" name="priceRange">
+        <option value="" <%= trip.priceRange === ""? "select" : "" %>>Select a range</option>
+        <option value="0-1000" <%= trip.priceRange === "0-1000" ? "selected" : "" %>>$0 - $1000</option>
+        <option value="1000-5000" <%= trip.priceRange === "1000-5000" ? "selected" : "" %>>$1000 - $5000</option>
+        <option value="5000-10000" <%= trip.priceRange === "5000-10000" ? "selected" : "" %>>$5000 - $10000</option>
+        <option value="10000+" <%= trip.priceRange === "10000+" ? "selected" : "" %>>$10,000+</option>
+      </select>
+      <label for="haveBeenThere">
+        <input type="checkbox" id="haveBeenThere" name="haveBeenThere" value="on" <%= trip.haveBeenThere ? "checked" : "" %>>
+        Have been there?
+      </label>
 
-    <button type="submit">Update Trip</button>
-  </form>
-  <a href="/users/<%= user._id %>/trips/">All Trips</a>
+      <button type="submit">Update Trip</button>
+    </form>
+    <a href="/users/<%= user._id %>/trips/">All Trips</a>
+  </div>
 </body>
 
 </html>

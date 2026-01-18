@@ -1,6 +1,6 @@
 # MyTrips
 
-![background image: snake in the space](./asset/screenshot.png)
+![background image: MyTrips](./assets/screenshot.png)
 
 ## 1. Project Overview:
 

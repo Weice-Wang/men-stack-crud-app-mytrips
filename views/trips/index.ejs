@@ -10,28 +10,31 @@
 
 <body>
   <%- include('../partials/_navbar.ejs') %>
-  <h1>Here are all your trips</h1>
-  <table border="1" cellpadding="8" cellspacing="0">
-    <tr>
-      <th>Destination</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Actions</th>
-    </tr>
-
-    <% trips.forEach(trip => { %>
-    <tr>
-      <td><%= trip.destination %></td>
-      <td><%= trip.startDate?.toLocaleDateString('en-AU')%></td>
-      <td><%= trip.endDate.toLocaleDateString('en-AU')%></td>
-      <td>
-        <a href="/users/<%= user._id %>/trips/<%= trip._id %>">View</a>
-        <a href="/users/<%= user._id %>/trips/<%= trip._id %>/edit">Edit</a>
-      </td>
-    </tr>
-    <% }) %>
-  </table>
-  <a href="/users/<%=user._id%>/trips/new">Add New Trip</a>
+  <div class="all-apps-body">
+    <div class="all-apps-header">
+      <h1 class="index-text">Your Trips</h1>
+    </div>
+    <table class="trips-table" border="1" , cellpadding="8" cellspacing="0">
+      <tr>
+        <th>Destination</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Actions</th>
+      </tr>
+      <% trips.forEach(trip => { %>
+      <tr>
+        <td><%= trip.destination %></td>
+        <td><%= trip.startDate?.toLocaleDateString('en-AU')%></td>
+        <td><%= trip.endDate.toLocaleDateString('en-AU')%></td>
+        <td>
+          <a href="/users/<%= user._id %>/trips/<%= trip._id %>">View</a>
+          <a href="/users/<%= user._id %>/trips/<%= trip._id %>/edit">Edit</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+    <a class="add-app-link" href="/users/<%=user._id%>/trips/new">Add New Trip</a>
+  </div>
 </body>
 
 </html>

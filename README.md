@@ -14,9 +14,9 @@ The project demonstrates key full-stack development concepts such as user authen
 
   [example]: https://github.com/Weice-Wang/my-trips.git
 
-- Plannning materials link: [My Trello board][example]
+<!-- - Plannning materials link: [My Trello board][example]
 
-  [example]: https://trello.com/invite/b/69622bf089d8732de6236990/ATTIa4e1b8e786c09d4df33290c6f966ce131C95582E/mytrips
+  [example]: https://trello.com/invite/b/69622bf089d8732de6236990/ATTIa4e1b8e786c09d4df33290c6f966ce131C95582E/mytrips -->
 
 > MVP User stories are written in the format:
 >
